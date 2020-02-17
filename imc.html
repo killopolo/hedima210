@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calcule su IMC</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        //window.alert("Bienvenido");
+        console.log("Estoy dentro");
+
+        /**
+        Función que calcula el valor nominal del IMC dado el valor numérico
+        */
+        function obtenerIMCNominal(imc_numerico) {
+            let imc_nominal = "";
+
+                if (imc_numerico < 16) {
+                    imc_nominal = "DESNUTRIDO";
+                } else if ((imc_numerico >= 16) && (imc_numerico < 18)) {
+                    imc_nominal = "DELGADO";
+                } else if ((imc_numerico >= 18) && (imc_numerico < 25)) {
+                    imc_nominal = "IDEAL";
+                } else if ((imc_numerico >= 25) && (imc_numerico < 31)) {
+                    imc_nominal = "SOBREPESO";
+                } else {
+                    imc_nominal = "OBESO";
+                }
+
+            return imc_nominal;
+
+        }
+
+        function calcularIMC() {
+            console.log("Llamó a calcularIMC");
+            let altura = document.getElementById("inAltura").value;
+            console.log("Altura obtenida " + altura);
+            let peso = document.getElementById("inPeso").value;
+            console.log("Peso obtenido " + peso);
+            let imc = peso / (altura * altura);
+            console.log("Su imc es " + imc);
+            //mostrar el resultado numérico redondeado
+            let resultado_imc = document.getElementById("spIMC");
+            resultado_imc.innerHTML = Math.round(imc);
+           //mostrar el resultado nominal
+            let imc_nominal = obtenerIMCNominal(imc);
+            document.getElementById("spGrupo").innerHTML = imc_nominal;
+
+        }
+
+    </script>
+
+    <style>
+    </style>
+
+    <!--Fórmula del IMC= peso (kg)/ (altura)2
+        Si es <16 = Desnutridos
+        Si es >=16 y <18 = Delgados
+        Si es >=18 y <25 = Ideal
+        Si es >=25 y <31 = Sobrepeso
+        Si es >=31 = Obesidad
+
+        ALGORITMO
+        ---------
+        1. Obtener peso
+        2. Obtener altura
+        3. Calcular resultado
+        4. Informar al usuario
+    -->
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h2>Cálculo de IMC</h2>
+        <h3>(Índice de masa Corporal)</h3>
+        <p class="dato">Introduce tu altura: <input type="text" name="" id="inAltura"></p>
+        <p class="dato">Introduce tu peso: <input type="text" name="" id="inPeso"></p class="dato">
+        <input type="button" onclick="calcularIMC()" value="CALCULAR" id="inCalculo">
+        <p class="dato">IMC: <span id="spIMC"></span></p>
+        <p class="dato">Usted se encuentra en el grupo: <span id="spGrupo"></span></p class="dato">
+
+    </div>
+
+
+</body>
+
+</html>
