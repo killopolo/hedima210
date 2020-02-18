@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Jojopedia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+
+    <script type="text/javascript">
+        
+        
+
+    </script>
+
+
+    
+
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body onload="comprobarCookie()">
+
+    
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index3.html"><img src="images/logoPRINCIPAL.png" alt=""></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">JJBA</a></li>
+                    <li><a href="#" style="margin-right: 60px;">Register</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" style="margin: 10px">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 buscar" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <div class="container-fluid text-center">
+        <div class="row">
+
+            <!--Aquí empieza el div del iframe-->
+            <div class="col-sm-9 text-left">
+                <iframe id="ifReproductor" width="100%" height="315 sty" style="display:inline-block;"
+                    src="https://www.youtube.com/embed/rA7kh6KoKsE" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                </iframe>
+
+                <div style="margin-top: 20px;">
+                    <a href="">#JJBA</a>
+                    <a href="">#Stands</a>
+                    <a href="">#JojoPose</a>
+                    <h3 id="nombrePelicula" style="font-size: 1.7em;">Bruno Bucciaratti Being a mom for 20 minutes</h3>
+
+                    <div class="popups" style="display: flex; justify-content: space-between; margin: 0;">
+                        <div class="coment1">565.876 visualizaciones•7 oct. 2019</div>
+                        <div class="coment2"><a href="#" data-toggle="popover" data-content="Me gusta este vídeo"><span class="glyphicon glyphicon-thumbs-up"></span> 5184</a>
+                        </div>
+                        <div class="coment2"><a href="" data-toggle="popover" data-content="No me gusta este vídeo"><span class="glyphicon glyphicon-thumbs-down"></span> 5184</a>
+                        </div>
+                        <div class="coment2"><a href="" data-toggle="popover" data-content="Comparte este vídeo"><span class="glyphicon glyphicon-share-alt"></span> COMPARTIR</a>
+                        </div>
+                        <div class="coment2"><a href=""><span class="glyphicon glyphicon-floppy-save"></span> GUARDAR</a>
+                        </div>
+                        <div class="coment3"><a href="">...</a></div>
+                    </div>
+
+
+                </div>
+
+                <hr style="color: #aaaaa9;background-color: #aaaaa9;height: 1px;border:none; margin: 10px 0px;">
+
+                <div class="col-xs-12" codigovideo="" descripcion="" id="dvInfoVideo" style="padding: 0px;">
+                    <div class="col-xs-2" style="min-height: 100px; text-align: center;">
+                        <img src="images/dplogo.jpg" class="" style="margin: 10px 0px; border-radius: 50%;">
+                    </div>
+                    <div class="col-xs-7" style="min-height: 100px; overflow: hidden;">
+                        <h4 style="font-weight: bold; margin: 5px 0px;">David Productions</h4>
+                        <p style="margin: 5px 0px;">3,18 M suscriptores</p>
+                        <p style="margin: 5px 0px;">This is the work of JJBA 5th season, enjoy.</p
+                            style="margin: 5px 0px;">
+
+                        <span onclick="return mostrarOcultar('ocultable')" style="font-weight: bold;color: grey; cursor: pointer;">AMPLIAR/OCULTAR</span></p>
+                
+                        <div id="ocultable" style="display:none;height:auto" class="ampliacion">
+                            <p>This is the work of JJBA 5th season, enjoy. </p>
+                        </div>
+                
+                    </div>
+                    <div class="col-xs-3" style="min-height: 100px; text-align: center;">
+                        <a class="botonSusc" href="#">SUSCRIBIRSE</a>
+                    </div> 
+
+                </div>
+
+                
+
+            </div>
+
+            <!--Aquí empieza el div de los vídeos-->
+
+            <div class="col-xs-12 col-sm-3 sidenav">
+
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='rA7kh6KoKsE' descripcion='Bruno Bucciaratti being a mom for 20 minutes'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/bruno.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>Bruno Bucciaratti being a mom for 20 minutes</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='B482Bwv-ZWU' descripcion='Diavolo reveal Identity'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/diavolo.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>Diavolo Reveal identity</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='pOgSPKTehqI' descripcion='Giorno Giovanna Childhood'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/giorno.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>Giorno Giovanna Childhood</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='CL9JaUIMOYE' descripcion='The Perfection of Golden Wind La Squadra'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/Squadra_anime.png" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>The Perfection of Golden Wind La Squadra</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='hTBzzgxmSFs' descripcion='JoJo Part 5 Passione Gang-Star dance. [HD]'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/dance.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>JoJo Part 5 Passione Gang-Star dance. [HD]</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='wl5mwnXgUhc' descripcion='The Psychology of Diavolo'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/jojo.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>The Psychology of Diavolo</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='p9wyGvD7QI8' descripcion='Diavolo Themes'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/diavolo2.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>Diavolo Themes</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-12 dvFrame" codigoVideo='oj9Ju9AsLjA' descripcion='ジョジョ: This is King Crimson ability! 『HD』'>
+                    <div class="col-xs-6 col-sm-12 col-lg-6" style="padding-left: 0px;padding-right: 5px;">
+                        <a href="#"><img src="images/king.jpg" /></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-lg-6 peli" style="padding: 0px; text-align: left; ">
+                        <h5>ジョジョ: This is King Crimson ability! 『HD』</h5>
+                        <p>David Productions</p>
+                        <p>21 M visualizaciones</p style="margin: 0px;">
+                    </div>
+                </div>
+
+
+            </div>
+            <!--Aquí empieza el div de los comentarios-->
+            <div class="col-xs-12 col-sm-9 text-left" style="min-height: 600px;margin: 10px 0px;;">
+
+                <h3 style="margin: 15px 0px !important; margin-top: 0px !important; text-align: center; border-top: 0.5px solid grey; border-bottom: 0.5px solid grey; padding: 10px;">COMENTARIOS</h3>
+
+                <!---->
+                <div class="col-xs-12" codigovideo="" descripcion="" id="dvInfoVideo2">
+                    <div class="col-xs-2" style="min-height: 100px; text-align: center;">
+                        <img src="images/evelyn.jpg" class=""
+                            style="margin: 10px 0px; width:80px; border-radius: 50%;">
+                    </div>
+                    <div class="col-xs-10" style="min-height: 100px;">
+                        <h4 style="font-weight: bold; margin: 5px 0px;">noobmaster69</h4>
+                        <p style="margin: 5px 0px;">3,18 M suscriptores</p>
+                        <p style="margin: 5px 0px;">WOW! this is incredible, animation, story, IM INLOVE</p
+                            style="margin: 5px 0px;">
+                            <span onclick="" style="font-weight: bold;color: grey; cursor: pointer;">AMPLIAR</span></p>
+
+                        <div id="" style="display:none;height:auto" class="ampliacion">
+                            <div class="row">
+                                <div class="col-sm-2">Campo</div>
+                                <div class="col-sm-7">Valor</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">Campo</div>
+                                <div class="col-sm-7">Valor</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">Campo</div>
+                                <div class="col-sm-7">Valor</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">Campo</div>
+                                <div class="col-sm-7">Valor</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">Campo</div>
+                                <div class="col-sm-7">Valor</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+
+
+    <div id="dvAceptarCookie" class="col-sm-12 borderDiv">Utilizamos cookies, ¿Lo aceptas<br />
+        <input id="btnAceptarCookie" onClick="ocultarCapaCookie();" class="btn-warning" type="button"
+            value="Sí, acepto" />
+    </div>
+
+</body>
+
+</html>
+
+
+<script>
+
+
+    $(document).ready(function () {
+        console.log('También estoy dentro');
+
+        //Colocamos un listener que estará atento a lo siguiente. Cuando alguien haga click en un evento de una clase, se ejecutara un javaScript que se eincluye en la función interna. Cuando alguien haga click en una miniatura de video. Se lleerá el atrr. del código del vídeo. Se invocará a la funcion "reproduceVideoConJquery". Para que funcione, se necesitan dos cosas:
+        //1. Que el elemento video esté visible por su clase.
+        //2. Que el elemento
+
+        $(".dvFrame").click(function () {
+            //alert( "Voy a cargar el vídeo" );
+            //El elemento originario en el que el usuario hizo click, es identificado por el listener con la palabra clave de jquery "this."
+
+            var elementoClicado = $(this);
+
+            console.log(elementoClicado);
+
+            var codigo = elementoClicado.attr('codigoVideo');
+            var descripcion = elementoClicado.attr('descripcion')
+
+            console.log(codigo);
+            console.log(descripcion);
+
+            reproduceVideoJquery(codigo);
+        });
+
+
+
+
+
+        function reproduceVideoJquery(codigoVideo) {
+
+            var reproductor = $("#ifReproductor");
+
+            //reproductor.src = "https://www.youtube.com/embed/" + codigoVideo;
+            //reproductor.attr("src","https://www.youtube.com/embed/" + codigoVideo);
+            reproductor.attr("src", "wait2.html");
+            //Estoy obligándole a esperar
+
+            //reproductor.attr("src", "https://www.youtube.com/embed/" + codigoVideo + "?rel=0&amp;autoplay=1");
+
+
+
+
+            var retrasoEnSegundos = 200;
+            setTimeout(function () {
+
+                //Así se hace en javaScript reproductor.src = "https://www.youtube.com/embed/" + codigoVideo;
+                //reproductor.attr("src", "https://www.youtube.com/embed/" + codigoVideo);
+                reproductor.attr("src", "https://www.youtube.com/embed/" + codigoVideo + "?rel=0&amp;autoplay=1");
+
+            }, retrasoEnSegundos);
+        }
+
+
+        $('[data-toggle="popover"]').popover({
+        placement : 'bottom',
+        trigger : 'hover'
+        });
+
+        //Cambiar título de la pelicula
+        $(".dvFrame").click(function(){
+            console.log("Hola");
+
+            var elementoClicado = $(this);
+            console.log(elementoClicado.attr('descripcion'));
+
+            var titulo
+
+            titulo = $('#nombrePelicula').html(elementoClicado.attr('descripcion'));
+            
+
+            
+
+            
+
+            
+
+            
+            
+
+            
+
+        });
+    
+
+
+    });
+
+
+
+</script>
