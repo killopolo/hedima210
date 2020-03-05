@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YO BINGO punto ES</title>
+    <style>
+        td {
+            vertical-align: top;
+            border: 2px solid #388ce0;
+            width: 3em;
+            height: 3em;
+        }
+    </style>
+    <script>
+        //TODO dibujar cartón
+        var saca = [];
+        var pos_saca = []
+        const MAX_FILAS = 3;
+        const MAX_COLUMNAS = 9;
+        var numeros_carton = [];//array vacío de números
+        window.onload = dibujarCarton;
+
+        function llenarSaca()
+        {
+            for (var i=1;i<=90;i++){
+
+            }
+        }
+
+        function shuffle(a) {
+var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+                    j = Math.floor(Math.random() * (i + 1));
+                    x = a[i];
+                    a[i] = a[j];
+                    a[j] = x;
+                }
+                return a;
+            }
+        function mayoriaImpares(numeros_carton)
+        {
+            let mas_impares = false;
+            let total_pares = 0;
+            let total_impares = 0;
+
+                for (let index = 0; index < numeros_carton.length; index++) {
+                    if (numeros_carton[index]%2==0)
+                    {//el numero es par
+                        total_pares++;
+                    } else { //es impar
+                        total_impares++;
+                    }
+                }
+                console.log("PARES " + total_pares + " IMPARES " + total_impares);
+                if (total_impares>total_pares){
+                    mas_impares = true;
+                }//else mas_impares = false
+                //mas_impares = (total_impares>total_pares);
+
+            return mas_impares;
+        }
+
+        function esMayor ()
+        {
+            let nMayor=0;
+            
+
+            for(let i=1;i<numeros_carton.length;i++){
+               if(numeros_carton[i]>nMayor){
+                    nMayor=numeros_carton[i];
+               }
+
+                
+            }
+
+            
+
+            console.log(nMayor);
+
+            
+            
+        }
+
+        function esMenor ()
+        {
+            let nMenor= numeros_carton[0];
+            
+
+            for(let i=1;i<numeros_carton.length;i++){
+               if(numeros_carton[i]<nMenor){
+                    nMenor=numeros_carton[i];
+               }
+
+                
+            }
+
+            
+
+            console.log(nMenor);
+        }
+        //función que informa por pantalla
+        //si el cartón rx es del gusto de Luisa
+        function comprobarCartonLuisa (contador)
+        {
+            //si numeros carton tiene el 5 y el 33 
+            if ((numeros_carton.includes (5))&&(numeros_carton.includes (33))&&mayoriaImpares(numeros_carton))
+            {
+                console.log ("Es de Luisa");
+                document.getElementById("resultadoLuisa").innerHTML = "ES DE LUISA";
+            } else {
+                console.log ("NO Es de Luisa");
+                document.getElementById("resultadoLuisa").innerHTML = "NO ES DE LUISA";
+            }
+            //y mayoría de Impares
+                //es de luisa
+            //si no
+                //No es de luisa
+
+        }
+
+        /**
+        HACER UNA FUNCIÓN QUE DEVUELVA UN ARRAY CON LOS NÚMEROS
+        QUE NO ESTÁN EN EL CARTÓN
+        **/
+
+        function obtenerNumerosQueNoEstan (numeros_que_estan)
+        {
+            let numeros_que_no_estan = [];
+            //voy del 1 al 90
+            //y si no estan, me lo apunto 
+                for (let index = 1; index <= 90; index++) {
+                   if (numeros_que_estan.indexOf(index)==-1)
+                   {
+                       //index no está, inserto
+                       numeros_que_no_estan.push(index);
+                   }    
+                }
+
+            return numeros_que_no_estan;
+
+        }
+
+        function deMenorAMayor (a, b) {
+            let numero_devuelto;
+                
+                numero_devuelto = a-b;
+
+            return numero_devuelto;
+        }
+
+        function generarNumeroBolasAleatorias(){
+            /*Pasos a seguir
+            1)Recibir un numero del carton
+            2)Poner la bola en una posicion 
+            3)y devolver la posicion*/
+
+            let bola = generarNumAleatorio();
+
+            return bola;
+
+        }
+
+        function empezarJuego(array_numero){
+            /*AQUI EMPEZAMOS A JUGAR
+            1)HACER UN DIV QUE COMUNIQUE ESTA FUNCION CON UN BOTON CON LA HERRAMIENTA ONCLICK
+            2)RECIBIR LA BOLA CON EL NUMERO ALEATORIO
+            3)COMPROBAR EN EL ARRAY SI EL NUMERO ALEATORIO DE LA BOLA PERTENECE AL SLOT DEL ARRAY, hacer una funcion auxiliar que cuando el numero esté 
+            se ponga de otro color
+            4)CREAR UNA VARIABLE CONTADOR EN FORMA DE ARRAY QUE GUARDE TODAS LAS POSICIONES EN UN NUEVO ARRAY CON LA PROPIEDAD FILTER
+            4)HACER UNA CONDICION DE QUE SI EXISTE EL NUMERO EN EL ARRAY, SE VA A GUARDAR LA POSICION COMO TOMADA
+            Y SE HACE UNA SUBCONDICION DENTRO DE AHI QUE NO SE PUEDE TOCAR ESA POSICION.
+            5) HACER UN ELSE IF DE QUE SI EL NUMERO NO EXISTE EN EL ARRAY, NO HAGA NADA, TIRE ALGO POR EL CONSOLE.LOG
+            Y QUE EL JUGADOR LE PIDA AL JUEGO OTRO NUMERO ALEATORIO
+            */
+
+            let bolasGuardadas = [];
+            let array_tds = document.getElementsByTagName("td");
+            let bola = generarNumAleatorio();
+        
+            for(var i=1;i<array_numero.length;i++){
+
+                if(array_numero[i].includes(bola))
+                {
+                    bolasGuardadas.push(array_numero[i])
+
+                    
+                    i++
+                }
+            }
+        
+
+
+        }
+
+        
+        function rellenarCarton()
+        {
+            //TODO rellenar los tds con números aleatorios [1,90]
+            //obtener los tds
+            let array_tds = document.getElementsByTagName("td");
+            let numero_aleatorio;
+
+            var index=0;
+            do{
+                numero_aleatorio = generarNumAleatorio();
+                //comprobar que numero_aleatorio NO esté en numeros_carton
+                if (numeros_carton.indexOf(numero_aleatorio)==-1)//no es repe
+                {
+                    console.log ("numero VÁLIDO");
+                  //  array_tds[index].innerHTML = numero_aleatorio;
+                    numeros_carton.push(numero_aleatorio);
+                    index++;
+                }
+            }while (numeros_carton.length<array_tds.length);
+            numeros_carton.sort(deMenorAMayor);
+            for (let index=0; index<array_tds.length;index++)
+            {
+                array_tds[index].innerHTML = numeros_carton[index];
+            }
+            console.log ("Numeros cartón = " +numeros_carton);
+            comprobarCartonLuisa (numeros_carton);
+            var array_no_estan = obtenerNumerosQueNoEstan (numeros_carton);
+            console.log (array_no_estan);
+            console.log ("longi no están " + array_no_estan.length);
+
+        }
+        function dibujarCarton()
+        {
+            let tabla = document.getElementById("carton");
+            let fila;
+            let columna;
+            for (let nfilas=0; nfilas<MAX_FILAS; nfilas++)
+            {
+                fila = document.createElement("tr");
+                for (let ncolumnas=0; ncolumnas<MAX_COLUMNAS; ncolumnas++)
+                {   
+                    columna = document.createElement("td");
+                    fila.appendChild(columna);
+                }
+                tabla.appendChild(fila);
+            }
+            rellenarCarton();
+            esMayor();
+            esMenor();
+        }
+    </script>
+</head>
+<body>
+    <table id="carton"></table>
+    <span id="resultadoLuisa"></span>
+    <input type="button" onclick="empezarJuego()" value="NUEVO NUMERO" id="nuevoNumero">
+</body>
+</html>

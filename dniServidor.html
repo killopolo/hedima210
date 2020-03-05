@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CALCULA LETRA DNI</title>
+    <meta charset="UTF-8">
+    <script>
+
+
+    const URL_SERVICIO = "http://192.168.3.89:8080/saludos/LetraDni?numerodni=";
+    var xhr = new XMLHttpRequest();
+
+    
+
+
+
+
+        
+
+
+
+        function recibirLetra(){
+            console.log("Estado de busqueda de la letra es " + xhr.readyState);
+            if(xhr.readyState==4){
+                console.log("La comunicacion ha terminado con el codigo " + xhr.readyState);
+                if(xhr.status==200){
+                console.log("La obtencion de la letra del DNI correspondiente ha finalizado con exito");
+                let letraRx = xhr.responseText;
+                document.getElementById("letra").value = letraRx;
+                console.log("TIPO MIME de la respuesta" + xhr.responseType);
+                
+            }
+            }
+
+            
+        }
+        var numeros;
+
+
+
+
+        
+
+        
+
+        function calcular() {
+
+
+            var numeros = document.getElementById("txtDNI").value;
+            console.log(`El dni insertado sería ${numeros}`);
+
+            let url = URL_SERVICIO+numeros;
+            console.log("URL DEL SERVICIO ES = " + url);
+            xhr.open("GET", url);
+            xhr.onreadystatechange=recibirLetra;
+            xhr.send;
+
+
+            
+
+
+            
+
+        }
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <fieldset style="width:400px">
+        <legend>CALCULADORA LETRA DNI</legend>
+        <label>Introduce tu DNI</label><br />
+        <input type="text" id="txtDNI" /><br />
+        <input onclick="calcular()" type="button" id="btnResultado" value="CALCULAR LETRA" /><br />
+        <label>LETRA</label><br />
+        <input type="text" id="letra" /><br><br>
+    </fieldset>
+</body>
+
+</html>

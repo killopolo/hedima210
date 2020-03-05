@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar parejas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <style>
+        img {
+            width: 100%;
+            height: 16vw;
+            object-fit: cover;
+        }
+
+        td {
+            width: 15%;
+            cursor: pointer;
+        }
+
+        .table {
+            width: 40%;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: top;
+            border: 2px solid #388ce0;
+        }
+    </style>
+    <script>
+        window.onload = iniciarTablero;
+        var primera_ves = true;
+        var n_aciertos = 0;
+        var n_intentos=0;
+        var vidas = 5;
+        function ocultarImagenes() {
+            var array_imagenes = document.getElementsByTagName("img");
+            console.log(array_imagenes.length);
+            var imagen_actual;
+            //ocultar imágenes
+            for (let index = 0; index < array_imagenes.length; index++) {
+                imagen_actual = array_imagenes[index];
+                console.log("ruta " + imagen_actual.src);
+                imagen_actual.style.visibility = "hidden";
+            }
+        }
+        function programarTds() {
+            //programar el listener de los tds
+            var array_tds = document.getElementsByTagName("td");
+            var td_actual;//variable auxiliar
+            for (let index = 0; index < array_tds.length; index++) {
+                td_actual = array_tds[index];
+                td_actual.onclick = descubrir;
+
+            }
+        }
+        function iniciarTablero() {
+            ocultarImagenes();
+            programarTds();
+
+        }
+
+        function descubrir() {
+            console.log("elemento tocado" + this);
+            console.log("imagen tocada " + this.firstChild);
+
+            this.firstChild.style.visibility = "visible";
+
+            if (primera_ves) {
+                console.log(`ha tocado la primera vez`);
+                primera_ves = false;
+                td_tocado = this;
+                
+            }
+
+            else {
+                console.log("ha tocado la segunda vez")
+                primera_ves = true;
+                if (this.firstChild.src == td_tocado.firstChild.src) {
+                    console.log("ACERTADO")
+                    n_aciertos++;
+                    if(n_aciertos==5){
+                        alert("enhora buena");
+                        location.reload(true);
+                    }
+                }
+
+                else {
+                    console.log("son distintas");
+                    setTimeout(tapar, 700, this.firstChild, td_tocado.firstChild);
+                }
+            }
+
+        }
+
+        function tapar (imagen1, imagen2)
+        {
+            imagen1.style.visibility = "hidden";
+            imagen2.style.visibility = "hidden";
+        }
+
+        
+
+
+
+
+
+
+
+
+
+        /*function configuracionJuego()
+    {
+
+        console.log ("El usuario quiere comprobar cuantas vidas le quedan");
+        //OBTENER EL NÚMERO INTRODUCIDO POR EL USUARIO
+        var imagen_elegida = document.getElementsByTagName("td");
+        numero_intentos = numero_intentos + 1;//numero_intentos++;
+        //TODO PENSAR CONDICIÓN DE FIN
+
+        if (imagen_elegida==imagen_elegida)
+        {
+            console.log ("Acieerrto");
+            window.alert ("Has acertado, CAMPEÓN");
+            acertado=true;
+            window.location.reload(true)
+        } else
+
+            while ((!imagen_eligida)&&(!imagen_elegida)) {
+
+            }
+            console.log ("Oh, no son iguales.");
+            window.alert ("Oh no son iguales");
+            numero_intentos++;
+
+
+        //si ha alcanzo el límite de intentos y no ha acertado
+        //&& y lógico
+        //|| ó
+        if ((numero_intentos==MAX_VIDAS)&&(!acertado))
+        {
+            console.log ("FIN DEL JUEGO");
+            window.alert("GAME OVER. Reinicio");
+            window.location.reload(true);//recargo la página forzosamente
+        }
+
+    } */
+    </script>
+</head>
+
+<body>
+    <header class="row">
+        <div class="container">
+            <h1>Encuentra las parejas</h1>
+            <p>Pulsa sobre los cuadros de la tabla para encontrar las parejas.</p>
+        </div>
+    </header>
+
+    <main class="row">
+        <table class="table container">
+            <tbody>
+                <tr>
+                    <td><img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Agentdalecooper.jpg/250px-Agentdalecooper.jpg">
+                    </td>
+                    <td><img
+                            src="https://cadenaser00.epimg.net/programa/imagenes/2017/05/20/la_script/1495303121_785651_1495303317_noticia_normal.jpg">
+                    </td>
+                    <td><img src="https://fcbk.su/_data/stickers/league_of_legends/league_of_legends_32.png"></td>
+                    <td><img src="https://pm1.narvii.com/5970/ff13eefc0f0fe550cfe5eded47a95c61905dbbce_00.jpg"></td>
+                    <td><img src="https://pbs.twimg.com/media/CPmravnUkAA7qc8.jpg"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://fcbk.su/_data/stickers/league_of_legends/league_of_legends_32.png"></td>
+                    <td><img src="https://pm1.narvii.com/5970/ff13eefc0f0fe550cfe5eded47a95c61905dbbce_00.jpg"></td>
+                    <td><img src="https://pbs.twimg.com/media/CPmravnUkAA7qc8.jpg"></td>
+                    <td><img
+                            src="https://cadenaser00.epimg.net/programa/imagenes/2017/05/20/la_script/1495303121_785651_1495303317_noticia_normal.jpg">
+                    </td>
+                    <td><img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Agentdalecooper.jpg/250px-Agentdalecooper.jpg">
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>
